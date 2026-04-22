@@ -14,31 +14,11 @@
         <section class="agenda-header">
             <div>
                 <h1>Escolha o dia</h1>
-                <p class="agenda-subtitle">Seu horario sera salvo no banco de dados da barbearia.</p>
-            </div>
-
-            <div class="auth-panel">
-                <div id="authStatus" class="auth-status auth-status--off">Verificando login...</div>
-                <div id="userInfo" class="user-info" hidden>
-                    <img id="userAvatar" class="user-avatar" alt="Foto do usuario">
-                    <div>
-                        <strong id="userName"></strong>
-                        <span id="userEmail"></span>
-                    </div>
-                </div>
-                <div class="auth-buttons">
-                    <button id="loginButton" class="btn-destaque" type="button">Entrar com Google</button>
-                    <button id="logoutButton" class="btn-secundario" type="button" hidden>Sair</button>
-                </div>
+                <p class="agenda-subtitle">Seu horário será salvo localmente e você pode confirmar por WhatsApp.</p>
             </div>
         </section>
 
-        <section id="loginGate" class="login-gate">
-            <h2>Login obrigatorio</h2>
-            <p>Entre com sua conta Google para liberar os horarios disponiveis.</p>
-        </section>
-
-        <section id="agendaContent" hidden>
+        <section id="agendaContent">
             <div id="calendario"></div>
             <h2 id="diaSelecionado"></h2>
             <div class="horarios" id="horarios"></div>
@@ -49,6 +29,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
-    <script type="module" src="js/script.js"></script>
+    <script type="module" src="js/conf.js"></script>
+    <script type="module" src="/js/firebase.js"></script>
 </body>
 </html>

@@ -34,6 +34,22 @@ header a {
     transition: background-color 0.3s, color 0.3s;
 }
 
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Sekuya", system-ui, sans-serif;
+    color: #ffffff;
+}
+
+main {
+    padding: 40px 20px 60px;
+}
+
+header {
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .btn-agendar {
     display: inline-block;
     padding: 14px 30px;
@@ -47,6 +63,7 @@ header a {
     box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
     position: relative;
     overflow: hidden;
+    margin-top: 25px;
 }
 
 /* efeito ao passar o mouse */
@@ -100,27 +117,14 @@ header a {
     padding: 0 20px;
 }
 
-.txt h1 {
-    gap: 120px;
-    font-size: 1.5em;
+.txt h2 {
+    font-size: clamp(1.8rem, 2.4vw, 2.5rem);
     margin-bottom: 20px;
 }
 
 .txt p {
-    font-size: 0.5em;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    margin-top: 15px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0 0 18px;
 }
 
-.txt {
-    max-width: 800px;
-    margin: 40px auto;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.btn-agendar {
-    display: inline-block;
-    margin-top: 25px; /* espaço entre texto e botão */
-}

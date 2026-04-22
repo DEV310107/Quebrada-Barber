@@ -6,33 +6,12 @@
     <title>Quebrada Cuts</title>
     <link rel="stylesheet" href="style/indx.css">
     <link rel="stylesheet" href="style/fundo.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="topo-site">
-        <img src="img/logo.png" alt="Logo Quebrada Cuts">
-        <div class="hero-copy">
-            <h1>Bem-vindo a Quebrada Cuts</h1>
-            <p>Entre com sua conta Google para agendar seu horario com seguranca.</p>
-        </div>
-
-        <div class="auth-box">
-            <div id="authStatus" class="auth-status auth-status--off">Voce ainda nao fez login.</div>
-            <div id="userInfo" class="user-info" hidden>
-                <img id="userAvatar" class="user-avatar" alt="Foto do usuario">
-                <div>
-                    <strong id="userName"></strong>
-                    <span id="userEmail"></span>
-                </div>
-            </div>
-            <div class="auth-actions">
-                <button id="loginButton" class="btn-agendar btn-login" type="button">Entrar com Google</button>
-                <button id="logoutButton" class="btn-secundario" type="button" hidden>Sair</button>
-                <a id="scheduleButton" href="agendamento.html" class="btn-agendar" aria-disabled="true">Agendar</a>
-            </div>
-        </div>
+    <header> 
+        <img src="img/logo.png" alt="logo quebrada cuts"> 
+        <h1> 💈 Bem Vindo a Quebrada Cuts 💈</h1> 
+        <a href="agendamento.html" class="btn-agendar">Agendar</a> 
     </header>
 
     <main>
@@ -56,7 +35,6 @@
             <a id="ctaScheduleButton" href="agendamento.html" class="btn-agendar" aria-disabled="true">Agendar agora</a>
         </section>
     </main>
-
-    <script type="module" src="js/home.js"></script>
+    <script type="module" src="/js/firebase.js"></script>
 </body>
 </html>
