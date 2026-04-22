@@ -1,0 +1,4 @@
+
+💾 salvar agendamentos (banco de dados)
+👤 cadastro de cliente
+📊 painel pro dono da barbearia

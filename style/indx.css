@@ -1,0 +1,126 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+header img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+header img:hover {
+    transform: scale(1.1); /* aumenta um pouco */
+    box-shadow: 0 8px 25px rgba(255,255,255,0.5); /* mais destaque */
+}
+
+header h1 {
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: "Sekuya", system-ui;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-family: "Sekuya", system-ui;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-agendar {
+    display: inline-block;
+    padding: 14px 30px;
+    background: linear-gradient(45deg, #d4af37, #ffd700);
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* efeito ao passar o mouse */
+.btn-agendar:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
+}
+
+/* efeito de brilho passando */
+.btn-agendar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+    transition: 0.5s;
+}
+
+.btn-agendar:hover::before {
+    left: 100%;
+}
+
+.prim-imgs {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.prim-imgs img {
+    width: 500px;        /* todas com mesmo tamanho */
+    height: 500px;
+    object-fit: cover;   /* evita distorção */
+    border-radius: 15px; /* deixa arredondado */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* sombra bonita */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.prim-imgs img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+.txt {
+    text-align: center;
+    font-family: "Sekuya", system-ui;
+    color: #ffffff;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.txt h1 {
+    gap: 120px;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.txt p {
+    font-size: 0.5em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.txt {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.btn-agendar {
+    display: inline-block;
+    margin-top: 25px; /* espaço entre texto e botão */
+}

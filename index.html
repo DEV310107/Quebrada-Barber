@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quebrada Cuts</title>
+    <link rel="stylesheet" href="style/indx.css">
+    <link rel="stylesheet" href="style/fundo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="topo-site">
+        <img src="img/logo.png" alt="Logo Quebrada Cuts">
+        <div class="hero-copy">
+            <h1>Bem-vindo a Quebrada Cuts</h1>
+            <p>Entre com sua conta Google para agendar seu horario com seguranca.</p>
+        </div>
+
+        <div class="auth-box">
+            <div id="authStatus" class="auth-status auth-status--off">Voce ainda nao fez login.</div>
+            <div id="userInfo" class="user-info" hidden>
+                <img id="userAvatar" class="user-avatar" alt="Foto do usuario">
+                <div>
+                    <strong id="userName"></strong>
+                    <span id="userEmail"></span>
+                </div>
+            </div>
+            <div class="auth-actions">
+                <button id="loginButton" class="btn-agendar btn-login" type="button">Entrar com Google</button>
+                <button id="logoutButton" class="btn-secundario" type="button" hidden>Sair</button>
+                <a id="scheduleButton" href="agendamento.html" class="btn-agendar" aria-disabled="true">Agendar</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="prim-imgs">
+            <img src="img/imagem corte 1.jpg" alt="Corte estilo 1">
+            <img src="img/imagem corte 2.jpg" alt="Corte estilo 2">
+            <img src="img/imagem corte 3.jpg" alt="Corte estilo 3">
+        </section>
+
+        <section class="txt">
+            <h2>Seu estilo comeca aqui</h2>
+            <p>
+                Na nossa barbearia, cada corte e mais do que um servico: e uma experiencia.
+                Agora o agendamento fica vinculado a uma conta real, facilitando o controle dos horarios
+                e evitando conflitos entre clientes.
+            </p>
+            <p>
+                Depois do login, voce escolhe o dia, seleciona o horario e o pedido fica salvo no banco
+                de dados da barbearia.
+            </p>
+            <a id="ctaScheduleButton" href="agendamento.html" class="btn-agendar" aria-disabled="true">Agendar agora</a>
+        </section>
+    </main>
+
+    <script type="module" src="js/home.js"></script>
+</body>
+</html>
