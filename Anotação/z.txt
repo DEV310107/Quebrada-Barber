@@ -1,0 +1,11 @@
+👤 cadastro de cliente (Facebook e telefone)
+💾 salvar agendamentos (banco de dados)
+📊 painel pro dono da barbearia
+
+colocar para dimensao para tablete
+mudar mensagem 
+colocar endereço contato
+pagina rodar mais rapido
+
+
+https://agendamentos.bestbarbers.app/barbershop/barbeariafattori
