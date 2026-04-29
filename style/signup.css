@@ -32,7 +32,9 @@ h1 {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"],
+input[type="tel"] {
     width: 100%;
     max-width: 300px;
     padding: 12px;
@@ -93,4 +95,41 @@ input[type="password"]:focus {
     background: #555;
     border-color: gold;
     transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    body {
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .signup-container {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: clamp(1.8rem, 5vw, 2.4rem);
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"],
+    input[type="tel"],
+    #criarConta,
+    .btn-voltar {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"],
+    input[type="tel"] {
+        box-sizing: border-box;
+    }
+
+    #criarConta {
+        margin-bottom: 15px;
+    }
 }

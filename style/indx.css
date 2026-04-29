@@ -166,3 +166,50 @@ header {
     margin: 0 0 18px;
 }
 
+@media (max-width: 900px) {
+    header {
+        padding: 20px 15px;
+    }
+
+    .prim-imgs {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .prim-imgs img {
+        width: 100%;
+        height: auto;
+        max-width: 500px;
+    }
+
+    .txt {
+        padding: 0 15px;
+    }
+
+    .header-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 20px 10px 40px;
+    }
+
+    .btn-agendar {
+        width: 100%;
+        max-width: 100%;
+        padding: 14px 18px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+        padding: 10px 0;
+    }
+
+    .header-actions {
+        gap: 10px;
+    }
+}
+

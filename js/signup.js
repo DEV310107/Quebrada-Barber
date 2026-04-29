@@ -6,6 +6,8 @@ import {
 
 const btnCriarConta = document.getElementById("criarConta");
 
+const nomeCompleto = document.getElementById("nomeCompleto");
+const telefone = document.getElementById("telefone");
 const email = document.getElementById("email");
 const senha = document.getElementById("senha");
 const confirmarSenha = document.getElementById("confirmarSenha");
@@ -13,9 +15,36 @@ const confirmarSenha = document.getElementById("confirmarSenha");
 const userText = document.getElementById("user");
 const status = document.getElementById("status");
 
+function getUserProfiles() {
+    return JSON.parse(localStorage.getItem("perfisUsuario") || "{}");
+}
+
+function saveUserProfile(uid, profile) {
+    if (!uid) return;
+    const profiles = getUserProfiles();
+    profiles[uid] = profile;
+    localStorage.setItem("perfisUsuario", JSON.stringify(profiles));
+}
+
+function validateCreationProfile() {
+    if (!nomeCompleto?.value.trim()) {
+        status.innerText = "Por favor, informe seu nome completo.";
+        status.style.color = "red";
+        return false;
+    }
+    if (!telefone?.value.trim()) {
+        status.innerText = "Por favor, informe seu telefone.";
+        status.style.color = "red";
+        return false;
+    }
+    return true;
+}
+
 // CRIAR CONTA COM EMAIL E SENHA
 btnCriarConta.onclick = async () => {
     try {
+        if (!validateCreationProfile()) return;
+
         // Verificar se as senhas coincidem
         if (senha.value !== confirmarSenha.value) {
             status.innerText = "As senhas não coincidem!";
@@ -37,6 +66,12 @@ btnCriarConta.onclick = async () => {
         );
 
         const user = result.user;
+
+        saveUserProfile(user.uid, {
+            nomeCompleto: nomeCompleto.value.trim(),
+            telefone: telefone.value.trim(),
+            email: user.email || "",
+        });
 
         userText.innerText = `👤 Conta criada: ${user.email}`;
         status.innerText = "Conta criada com sucesso!";

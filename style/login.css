@@ -51,7 +51,9 @@ h1 {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"],
+input[type="tel"] {
     width: 100%;
     max-width: 300px;
     padding: 12px;
@@ -71,7 +73,7 @@ input[type="password"]:focus {
 }
 
 #loginEmail,
-#cadastroEmail {
+#criarConta {
     background: #333;
     color: white;
     border: 2px solid #555;
@@ -81,8 +83,9 @@ input[type="password"]:focus {
     font-weight: bold;
     transition: all 0.3s ease;
     margin: 10px 5px;
-    width: calc(50% - 10px);
-    max-width: 140px;
+    flex: 1 1 140px;
+    max-width: 160px;
+    min-width: 120px;
 }
 
 .button-row {
@@ -94,7 +97,7 @@ input[type="password"]:focus {
 }
 
 #loginEmail:hover,
-#cadastroEmail:hover {
+#criarConta:hover {
     background: #555;
     border-color: gold;
     transform: translateY(-2px);
@@ -126,20 +129,63 @@ input[type="password"]:focus {
     color: gold;
 }
 
-a button {
-    background: #222;
+.btn-back {
+    display: block;
+    width: calc(100% - 20px);
+    max-width: 280px;
+    margin: 20px auto 0;
+    text-align: center;
+    text-decoration: none;
     color: white;
+    background: #222;
     border: 2px solid #555;
-    padding: 10px 20px;
+    padding: 12px 0;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
     transition: all 0.3s ease;
-    margin-top: 20px;
 }
 
-a button:hover {
+.btn-back:hover {
     background: #555;
     border-color: gold;
     transform: translateY(-2px);
+}
+@media (max-width: 768px) {
+    body {
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .login-container {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: clamp(1.8rem, 5vw, 2.4rem);
+    }
+
+    .button-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #loginEmail,
+    #criarConta,
+    .btn-google,
+    .btn-back,
+    input[type="email"],
+    input[type="password"],
+    input[type="text"],
+    input[type="tel"] {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    #loginEmail,
+    #criarConta,
+    .btn-google {
+        margin: 8px 0;
+    }
 }

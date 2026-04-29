@@ -1,3 +1,5 @@
 👤 cadastro de cliente
 💾 salvar agendamentos (banco de dados)
 📊 painel pro dono da barbearia
+
+verificação via sms

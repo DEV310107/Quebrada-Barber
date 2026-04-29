@@ -114,6 +114,46 @@ h1 {
     margin-top: 20px;
 }
 
+.resumo {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    text-align: left;
+}
+
+.resumo h2 {
+    margin: 0 0 12px;
+    color: gold;
+    font-size: 1.4rem;
+}
+
+#resumoDetalhes {
+    color: #ddd;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    margin-bottom: 15px;
+}
+
+.btn-cancelar {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-cancelar:hover {
+    transform: translateY(-2px);
+    background: #e02828;
+}
+
 .horarios button {
     margin: 5px;
     padding: 10px 15px;
@@ -129,6 +169,25 @@ h1 {
     transform: scale(1.1);
 }
 
+#formAgendamento {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0 10px;
+}
+
+#formAgendamento select {
+    min-width: 180px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #111;
+    color: #f1f1f1;
+}
+
 .voltar {
     display: inline-block;
     margin-top: 20px;
@@ -139,17 +198,164 @@ h1 {
     border-radius: 10px;
 }
 
-#mensagem {
-    margin-top: 20px;
-    padding: 15px;
-    background: green;
-    color: white;
-    border-radius: 10px;
-    font-weight: bold;
+.modal.hidden {
+    display: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.72);
+    z-index: 10000;
+    padding: 20px;
+}
+
+.modal-content {
+    width: min(520px, 100%);
+    background: #111;
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.36);
     text-align: center;
+    animation: aparecer 0.25s ease;
+}
+
+.modal-content p {
+    color: #f1f1f1;
+    font-size: 1.05rem;
+    white-space: pre-line;
+    line-height: 1.6;
+    margin: 0 0 18px;
+}
+
+.modal-content input {
+    width: 100%;
+    max-width: 420px;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background: #222;
+    color: #f1f1f1;
+    font-size: 1rem;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.modal-ok,
+.modal-cancel {
+    margin-top: 5px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-cancel {
+    background: #333;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+.modal-ok {
+    margin-top: 25px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 12px;
+    background: gold;
+    color: #111;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-ok:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(255, 215, 0, 0.4);
 }
 
 @keyframes aparecer {
-    from { opacity: 0; transform: translateY(-10px); }
+    from { opacity: 0; transform: translateY(-15px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    #calendario,
+    .auth-block-content,
+    .resumo,
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .auth-block-content {
+        padding: 30px 20px;
+    }
+
+    .horarios {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .horarios button {
+        width: calc(50% - 12px);
+        min-width: 140px;
+        padding: 12px 10px;
+    }
+
+    #formAgendamento {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 10px;
+    }
+
+    #formAgendamento select {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .voltar {
+        width: calc(100% - 40px);
+        max-width: 400px;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .horarios button {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .modal-ok,
+    .modal-cancel {
+        width: 100%;
+    }
 }

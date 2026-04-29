@@ -38,56 +38,51 @@
             <div id="calendario"></div>
             <h2 id="diaSelecionado"></h2>
             <div class="horarios" id="horarios"></div>
-            <div id="mensagem" hidden></div>
+            <div id="mensagem" class="modal hidden">
+                <div class="modal-content">
+                    <p id="msg-texto"></p>
+                    <button id="modalOk" class="modal-ok">Ok</button>
+                </div>
+            </div>
         </section>
 
-        <!-- FORMULÁRIO DE AGENDAMENTO -->
-        <section id="formAgendamento">
+    <section id="resumoAgendamento" class="resumo hidden">
+        <h2>Seu agendamento</h2>
+        <div id="resumoDetalhes"></div>
+        <button id="cancelarAgendamento" class="btn-cancelar">Cancelar agendamento</button>
+    </section>
 
-            <input
-                type="text"
-                id="nome"
-                placeholder="Seu nome"
-            >
+    <div id="bookingModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Finalize seu agendamento</h2>
+            <p>Informe nome completo e telefone para confirmar o horário.</p>
+            <input type="text" id="bookingNome" placeholder="Nome completo">
+            <input type="tel" id="bookingTelefone" placeholder="Telefone (somente números)">
+            <div class="modal-buttons">
+                <button id="bookingConfirm" class="modal-ok">Confirmar</button>
+                <button id="bookingCancel" class="modal-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
 
-            <input
-                type="text"
-                id="telefone"
-                placeholder="Seu telefone"
-            >
+    <section id="formAgendamento">
+        <select id="servico">
+            <option value="">Escolha o serviço</option>
+            <option value="Corte">Corte</option>
+            <option value="Barba">Barba</option>
+            <option value="Corte + Barba">Corte + Barba</option>
+        </select>
 
-            <select id="servico">
-                <option value="">Escolha o serviço</option>
-                <option value="Corte">Corte</option>
-                <option value="Barba">Barba</option>
-                <option value="Corte + Barba">Corte + Barba</option>
-            </select>
+        <select id="barbeiro">
+            <option value="">Escolha o barbeiro</option>
+            <option value="João">João</option>
+            <option value="Carlos">Carlos</option>
+        </select>
+    </section>
 
-            <select id="barbeiro">
-                <option value="">Escolha o barbeiro</option>
-                <option value="João">João</option>
-                <option value="Carlos">Carlos</option>
-            </select>
-
-            <input
-                type="date"
-                id="data"
-            >
-
-            <input
-                type="time"
-                id="horario"
-            >
-
-            <button onclick="salvarAgendamento()">
-                Confirmar Agendamento
-            </button>
-
-        </section>
-
-        <a href="index.html" class="voltar">
-            Voltar
-        </a>
+    <a href="index.html" class="voltar">
+        Voltar
+    </a>
 
     </main>
 
@@ -95,9 +90,6 @@
 
     <!-- Firebase -->
     <script type="module" src="js/conf.js"></script>
-
-    <!-- Agendamento -->
-    <script type="module" src="js/agenda.js"></script>
 
 </body>
 </html>
