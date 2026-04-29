@@ -2,4 +2,6 @@
 💾 salvar agendamentos (banco de dados)
 📊 painel pro dono da barbearia
 
-verificação via sms
+colocar para dimensao para tablete
+mudar mensagem 
+colocar endereço contato

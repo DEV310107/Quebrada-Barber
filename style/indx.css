@@ -1,8 +1,11 @@
 header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px;
+    gap: 20px;
+    text-align: center;
 }
 
 header img {
@@ -46,8 +49,9 @@ main {
 }
 
 header {
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-actions {
@@ -55,6 +59,7 @@ header {
     align-items: center;
     gap: 15px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .user-profile {

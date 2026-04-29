@@ -4,6 +4,16 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
+    padding: 20px;
+}
+
+.agenda-layout {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.agenda-header {
+    margin-bottom: 30px;
 }
 
 /* MODAL DE BLOQUEIO DE AUTENTICAÇÃO */
@@ -27,7 +37,8 @@ body {
     border-radius: 15px;
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
     max-width: 450px;
-    width: 90%;
+    width: 85%;
+    margin: 0 auto;
     animation: slideIn 0.3s ease;
 }
 
@@ -105,7 +116,7 @@ h1 {
     max-width: 900px;
     margin: 30px auto;
     background: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 15px;
     color: black;
 }
@@ -171,12 +182,12 @@ h1 {
 
 #formAgendamento {
     max-width: 900px;
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 12px;
-    padding: 0 10px;
+    padding: 0 30px;
 }
 
 #formAgendamento select {
@@ -189,13 +200,16 @@ h1 {
 }
 
 .voltar {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 12px 20px;
     background: gold;
     color: black;
     text-decoration: none;
     border-radius: 10px;
+    font-weight: bold;
 }
 
 .modal.hidden {

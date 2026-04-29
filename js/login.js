@@ -32,6 +32,14 @@ function saveUserProfile(uid, profile) {
 }
 
 function validateBasicProfile(isGoogleLogin = false) {
+    const aceitarTermos = document.getElementById("aceitarTermos");
+    if (!aceitarTermos?.checked) {
+        aceitarTermos.classList.add("error");
+        status.innerText = "Você deve aceitar os Termos de Uso e Política de Privacidade.";
+        status.style.color = "red";
+        return false;
+    }
+    aceitarTermos.classList.remove("error");
     if (!isGoogleLogin && !telefone?.value.trim()) {
         status.innerText = "Por favor, informe seu telefone.";
         status.style.color = "red";

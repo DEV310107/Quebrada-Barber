@@ -64,6 +64,7 @@ input[type="tel"] {
     color: white;
     font-size: 1em;
     transition: border-color 0.3s ease;
+    box-sizing: border-box;
 }
 
 input[type="email"]:focus,
@@ -77,22 +78,21 @@ input[type="password"]:focus {
     background: #333;
     color: white;
     border: 2px solid #555;
-    padding: 12px 25px;
+    padding: 15px 25px;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
     transition: all 0.3s ease;
-    margin: 10px 5px;
-    flex: 1 1 140px;
-    max-width: 160px;
-    min-width: 120px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 12px;
 }
 
 .button-row {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
     margin-bottom: 20px;
 }
 
@@ -188,4 +188,30 @@ input[type="password"]:focus {
     .btn-google {
         margin: 8px 0;
     }
+}
+
+label[for="aceitarTermos"] {
+    display: block;
+    margin: 15px 0;
+    font-size: 0.9em;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+label[for="aceitarTermos"] input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+label[for="aceitarTermos"] a {
+    color: gold;
+    text-decoration: none;
+}
+
+label[for="aceitarTermos"] a:hover {
+    text-decoration: underline;
+}
+
+label[for="aceitarTermos"] input[type="checkbox"].error {
+    border: 2px solid #cc0000;
+    outline: 1px solid #cc0000;
 }

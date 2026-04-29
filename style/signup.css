@@ -45,6 +45,7 @@ input[type="tel"] {
     color: white;
     font-size: 1em;
     transition: border-color 0.3s ease;
+    box-sizing: border-box;
 }
 
 input[type="email"]:focus,
@@ -132,4 +133,30 @@ input[type="password"]:focus {
     #criarConta {
         margin-bottom: 15px;
     }
+}
+
+label[for="aceitarTermos"] {
+    display: block;
+    margin: 15px 0;
+    font-size: 0.9em;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+label[for="aceitarTermos"] input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+label[for="aceitarTermos"] a {
+    color: gold;
+    text-decoration: none;
+}
+
+label[for="aceitarTermos"] a:hover {
+    text-decoration: underline;
+}
+
+label[for="aceitarTermos"] input[type="checkbox"].error {
+    border: 2px solid #cc0000;
+    outline: 1px solid #cc0000;
 }
