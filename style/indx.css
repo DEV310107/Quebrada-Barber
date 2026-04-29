@@ -50,20 +50,58 @@ header {
     gap: 20px;
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#userStatus {
+    color: gold;
+    font-weight: bold;
+    margin: 0;
+    font-size: 0.95em;
+}
+
+.btn-logout {
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-family: "Sekuya", system-ui;
+    font-size: 1em;
+}
+
+.btn-logout:hover {
+    background: #c9302c;
+    transform: scale(1.05);
+}
+
 .btn-agendar {
     display: inline-block;
-    padding: 14px 30px;
+    padding: 12px 28px;
     background: linear-gradient(45deg, #d4af37, #ffd700);
     color: black;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 10px;
     letter-spacing: 1px;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
     position: relative;
     overflow: hidden;
-    margin-top: 25px;
+    font-size: 1em;
 }
 
 /* efeito ao passar o mouse */

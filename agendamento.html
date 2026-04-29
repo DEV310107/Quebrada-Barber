@@ -10,11 +10,27 @@
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
 </head>
 <body>
+
+    <!-- MODAL DE AUTENTICAÇÃO BLOQUEADA -->
+    <div id="authBlockModal" class="auth-block-modal" style="display: none;">
+        <div class="auth-block-content">
+            <h2>🔐 Acesso Restrito</h2>
+            <p>Para fazer um agendamento, você precisa estar conectado a uma conta.</p>
+            <div class="auth-block-buttons">
+                <a href="index.html" class="btn-voltar">← Voltar</a>
+                <a href="login.html" class="btn-login">🔑 Ir para Login</a>
+            </div>
+        </div>
+    </div>
+
     <main class="agenda-layout">
+
         <section class="agenda-header">
             <div>
                 <h1>Escolha o dia</h1>
-                <p class="agenda-subtitle">Seu horário será salvo localmente e você pode confirmar por WhatsApp.</p>
+                <p class="agenda-subtitle">
+                    Seu horário será salvo localmente e você pode confirmar por WhatsApp.
+                </p>
             </div>
         </section>
 
@@ -25,11 +41,63 @@
             <div id="mensagem" hidden></div>
         </section>
 
-        <a href="index.html" class="voltar">Voltar</a>
+        <!-- FORMULÁRIO DE AGENDAMENTO -->
+        <section id="formAgendamento">
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Seu nome"
+            >
+
+            <input
+                type="text"
+                id="telefone"
+                placeholder="Seu telefone"
+            >
+
+            <select id="servico">
+                <option value="">Escolha o serviço</option>
+                <option value="Corte">Corte</option>
+                <option value="Barba">Barba</option>
+                <option value="Corte + Barba">Corte + Barba</option>
+            </select>
+
+            <select id="barbeiro">
+                <option value="">Escolha o barbeiro</option>
+                <option value="João">João</option>
+                <option value="Carlos">Carlos</option>
+            </select>
+
+            <input
+                type="date"
+                id="data"
+            >
+
+            <input
+                type="time"
+                id="horario"
+            >
+
+            <button onclick="salvarAgendamento()">
+                Confirmar Agendamento
+            </button>
+
+        </section>
+
+        <a href="index.html" class="voltar">
+            Voltar
+        </a>
+
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+    <!-- Firebase -->
     <script type="module" src="js/conf.js"></script>
-    <script type="module" src="/js/firebase.js"></script>
+
+    <!-- Agendamento -->
+    <script type="module" src="js/agenda.js"></script>
+
 </body>
 </html>

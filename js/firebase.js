@@ -2,10 +2,12 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider } 
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+import { getFirestore } 
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 // 🔐 CONFIG
 const firebaseConfig = {
-  apiKey: "SUA_KEY",
+  apiKey: "AIzaSyCuVlCN-ofRnsS7KG6oELedvy84V9U6pUg",
   authDomain: "projeto-test-quebrada-barber.firebaseapp.com",
   projectId: "projeto-test-quebrada-barber",
   storageBucket: "projeto-test-quebrada-barber.firebasestorage.app",
@@ -20,5 +22,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-// 🔥 EXPORTA (IMPORTANTE)
-export { auth, provider };
+// 🔥 FIRESTORE
+const db = getFirestore(app);
+
+// 🔥 EXPORTA
+export { auth, provider, db };

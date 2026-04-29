@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Quebrada Cuts</title>
+
+    <link rel="stylesheet" href="./style/login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>💈 Quebrada Cuts</h1>
+
+        <p id="status">Entre com sua conta</p>
+
+        <!-- Login com Email e Senha -->
+        <input type="email" id="email" placeholder="Digite seu e-mail">
+        <input type="password" id="senha" placeholder="Digite sua senha">
+
+        <div class="button-row">
+            <button id="loginEmail">
+                Entrar
+            </button>
+            <button id="criarConta" onclick="window.location.href='signup.html'">
+                Criar Conta
+            </button>
+        </div>
+
+        <!-- Login com Google -->
+        <button id="loginGoogle" class="btn-google">
+            🔐 Entrar com Google
+        </button>
+
+        <p id="user"></p>
+
+        <br>
+
+        <a href="/index.html">
+            <button>Voltar</button>
+        </a>
+    </div>
+
+    <script type="module" src="./js/login.js"></script>
+
+</body>
+</html>

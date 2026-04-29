@@ -1,7 +1,35 @@
 // 🔥 IMPORTA DO FIREBASE
 import { auth, provider } from "./firebase.js";
-import { signInWithPopup } 
+import { signInWithPopup, onAuthStateChanged } 
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+// ============================
+// 🔐 VERIFICAR AUTENTICAÇÃO
+// ============================
+
+onAuthStateChanged(auth, (user) => {
+    const authBlockModal = document.getElementById('authBlockModal');
+    const agendaContent = document.getElementById('agendaContent');
+    const formAgendamento = document.getElementById('formAgendamento');
+    const agendaHeader = document.querySelector('.agenda-header');
+    const voltarBtn = document.querySelector('.voltar');
+    
+    if (!user) {
+        // Usuário não está logado - mostrar bloqueio
+        if (authBlockModal) authBlockModal.style.display = 'flex';
+        if (agendaContent) agendaContent.style.display = 'none';
+        if (formAgendamento) formAgendamento.style.display = 'none';
+        if (agendaHeader) agendaHeader.style.display = 'none';
+        if (voltarBtn) voltarBtn.style.display = 'none';
+    } else {
+        // Usuário está logado - mostrar conteúdo
+        if (authBlockModal) authBlockModal.style.display = 'none';
+        if (agendaContent) agendaContent.style.display = 'block';
+        if (formAgendamento) formAgendamento.style.display = 'block';
+        if (agendaHeader) agendaHeader.style.display = 'block';
+        if (voltarBtn) voltarBtn.style.display = 'inline-block';
+    }
+});
 
 // ============================
 // 🔐 LOGIN GOOGLE
