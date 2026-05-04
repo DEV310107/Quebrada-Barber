@@ -12,50 +12,154 @@
         <img src="img/logo.png" alt="logo quebrada cuts"> 
         <h1> 💈 Bem Vindo a Quebrada Cuts 💈</h1> 
         <div class="header-actions">
-            <div id="userProfile" class="user-profile">
-                <p id="userStatus">Carregando...</p>
-                <button id="logoutBtn" class="btn-logout" style="display: none;">Logout</button>
-            </div>
             <a href="login.html" class="btn-agendar" id="loginLink">login</a> 
+            <button id="logoutBtn" class="btn-logout" style="display: none;">Logout</button>
             <a href="agendamento.html" class="btn-agendar">Agendar</a> 
         </div>
     </header>
 
     <main>
-        <section class="prim-imgs">
-            <img src="img/imagem corte 1.jpg" alt="Corte estilo 1">
-            <img src="img/imagem corte 2.jpg" alt="Corte estilo 2">
-            <img src="img/imagem corte 3.jpg" alt="Corte estilo 3">
-        </section>
+        <div class="banner-section">
+            <h1 class="main-title">QUEBRADA CUTS</h1>
+        </div>
 
-        <section class="txt">
-            <h2>Seu estilo comeca aqui</h2>
-            <p>
-                Na nossa barbearia, cada corte e mais do que um servico: e uma experiencia.
-                Agora o agendamento fica vinculado a uma conta real, facilitando o controle dos horarios
-                e evitando conflitos entre clientes.
-            </p>
-            <p>
-                Depois do login, voce escolhe o dia, seleciona o horario e o pedido fica salvo no banco
-                de dados da barbearia.
-            </p>
-            <a id="ctaScheduleButton" href="agendamento.html" class="btn-agendar" aria-disabled="true">Agendar agora</a>
-        </section>
+        <div class="content-wrapper">
+            <!-- Seção Esquerda -->
+            <section class="left-section">
+                <h2>Serviços</h2>
+                <div class="services-list">
+                    <div class="service-item">
+                        <span class="service-name">Corte</span>
+                        <span class="service-price">R$ 35,00</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-name">Barba Completa</span>
+                        <span class="service-price">R$ 30,00</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-name">Hidratação Facial</span>
+                        <span class="service-price">R$ 39,00</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-name">Alinhamento</span>
+                        <span class="service-price">R$ 45,00</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-name">Polimento da Barba</span>
+                        <span class="service-price">R$ 25,00</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-name">Sombrancelha</span>
+                        <span class="service-price">R$ 16,00</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-name">Corte</span>
+                        <span class="service-price">R$ 46,00</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-name">Barba</span>
+                        <span class="service-price">R$ 19,00</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Direita -->
+            <section class="right-section">
+                <!-- Imagens -->
+                <div class="gallery-section">
+                    <img src="img/imagem corte 1.jpg" alt="Corte estilo 1">
+                    <img src="img/imagem corte 2.jpg" alt="Corte estilo 2">
+                    <img src="img/imagem corte 3.jpg" alt="Corte estilo 3">
+                </div>
+
+                <!-- Horários -->
+                <div class="schedule-section">
+                    <h2>Horários</h2>
+                    <div class="schedule-item">
+                        <span>Segunda-Feira</span>
+                        <span>09:00 - 21:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Terça-Feira</span>
+                        <span>09:00 - 21:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Quarta-Feira</span>
+                        <span>09:00 - 21:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Quinta-Feira</span>
+                        <span>09:00 - 21:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Sexta-Feira</span>
+                        <span>09:00 - 21:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Sábado</span>
+                        <span>09:00 - 17:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Domingo</span>
+                        <span>Fechado</span>
+                    </div>
+                </div>
+
+                <!-- Avaliações -->
+                <div class="reviews-section">
+                    <div class="reviews-header">
+                        <h2>Avaliações</h2>
+                        <button id="addReviewBtn" class="btn-add-review" style="display: none;">+ Avaliar</button>
+                    </div>
+                    <div id="reviewsContainer">
+                        <p style="color: #ccc; text-align: center;">Carregando avaliações...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <a id="ctaScheduleButton" href="agendamento.html" class="btn-agendar-full">Agendar um horário</a>
     </main>
+
+    <!-- Modal de Avaliação -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span id="closeReviewModal" class="close">&times;</span>
+            <h2>Deixe sua Avaliação</h2>
+            
+            <div class="form-group">
+                <label for="ratingInput">Classificação:</label>
+                <select id="ratingInput">
+                    <option value="">Selecione uma nota</option>
+                    <option value="5">⭐⭐⭐⭐⭐ 5 Estrelas - Excelente</option>
+                    <option value="4">⭐⭐⭐⭐ 4 Estrelas - Muito Bom</option>
+                    <option value="3">⭐⭐⭐ 3 Estrelas - Bom</option>
+                    <option value="2">⭐⭐ 2 Estrelas - Razoável</option>
+                    <option value="1">⭐ 1 Estrela - Ruim</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="commentInput">Comentário (opcional):</label>
+                <textarea id="commentInput" placeholder="Compartilhe sua experiência..." rows="4"></textarea>
+            </div>
+
+            <button id="submitReviewBtn" class="btn-submit-review">Enviar Avaliação</button>
+        </div>
+    </div>
+    
     <script type="module" src="/js/firebase.js"></script>
+    <script type="module" src="/js/reviews.js"></script>
     <script type="module">
         import { auth } from './js/firebase.js';
         import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
-        const userStatus = document.getElementById('userStatus');
         const logoutBtn = document.getElementById('logoutBtn');
         const loginLink = document.getElementById('loginLink');
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 // Usuário está logado
-                const displayName = user.displayName || user.email;
-                userStatus.innerText = `👤 ${displayName}`;
                 logoutBtn.style.display = 'block';
                 loginLink.style.display = 'none';
 
@@ -69,7 +173,6 @@
                 };
             } else {
                 // Usuário não está logado
-                userStatus.innerText = '❌ Não conectado';
                 logoutBtn.style.display = 'none';
                 loginLink.style.display = 'block';
             }

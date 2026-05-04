@@ -8,7 +8,6 @@ import {
 const btnLoginGoogle = document.getElementById("loginGoogle");
 const btnLoginEmail = document.getElementById("loginEmail");
 
-const telefone = document.getElementById("telefone");
 const email = document.getElementById("email");
 const senha = document.getElementById("senha");
 
@@ -25,7 +24,6 @@ function saveUserProfile(uid, profile) {
     const existing = profiles[uid] || {};
     profiles[uid] = {
         nomeCompleto: existing.nomeCompleto || profile.nomeCompleto || "",
-        telefone: profile.telefone || existing.telefone || "",
         email: profile.email || existing.email || ""
     };
     localStorage.setItem("perfisUsuario", JSON.stringify(profiles));
@@ -40,11 +38,7 @@ function validateBasicProfile(isGoogleLogin = false) {
         return false;
     }
     aceitarTermos.classList.remove("error");
-    if (!isGoogleLogin && !telefone?.value.trim()) {
-        status.innerText = "Por favor, informe seu telefone.";
-        status.style.color = "red";
-        return false;
-    }
+
     return true;
 }
 
@@ -59,7 +53,6 @@ btnLoginGoogle.onclick = async () => {
         const existingProfile = getUserProfiles()[user.uid] || {};
 
         saveUserProfile(user.uid, {
-            telefone: telefone?.value.trim() || existingProfile.telefone || "",
             email: user.email || "",
             nomeCompleto: existingProfile.nomeCompleto || user.displayName || "",
         });
@@ -95,7 +88,6 @@ btnLoginEmail.onclick = async () => {
         const existingProfile = getUserProfiles()[user.uid] || {};
 
         saveUserProfile(user.uid, {
-            telefone: telefone.value.trim(),
             email: user.email || "",
             nomeCompleto: existingProfile.nomeCompleto || "",
         });
