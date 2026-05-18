@@ -28,23 +28,45 @@ function saveUserProfile(uid, profile) {
 
 function validateCreationProfile() {
     const aceitarTermos = document.getElementById("aceitarTermos");
+    
     if (!aceitarTermos?.checked) {
-        aceitarTermos.classList.add("error");
-        status.innerText = "Você deve aceitar os Termos de Uso e Política de Privacidade.";
+        aceitarTermos?.classList.add("error");
+        status.innerText = "❌ Você deve aceitar os Termos de Uso";
         status.style.color = "red";
         return false;
     }
     aceitarTermos.classList.remove("error");
+    
     if (!nomeCompleto?.value.trim()) {
-        status.innerText = "Por favor, informe seu nome completo.";
+        status.innerText = "❌ Por favor, informe seu nome completo";
         status.style.color = "red";
+        nomeCompleto?.focus();
         return false;
     }
+    
+    if (!email?.value.trim()) {
+        status.innerText = "❌ Por favor, informe seu e-mail";
+        status.style.color = "red";
+        email?.focus();
+        return false;
+    }
+    
+    // Validar formato de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value)) {
+        status.innerText = "❌ Por favor, digite um e-mail válido";
+        status.style.color = "red";
+        email?.focus();
+        return false;
+    }
+    
     if (!telefone?.value.trim()) {
-        status.innerText = "Por favor, informe seu telefone.";
+        status.innerText = "❌ Por favor, informe seu telefone";
         status.style.color = "red";
+        telefone?.focus();
         return false;
     }
+    
     return true;
 }
 
@@ -53,23 +75,42 @@ btnCriarConta.onclick = async () => {
     try {
         if (!validateCreationProfile()) return;
 
-        // Verificar se as senhas coincidem
-        if (senha.value !== confirmarSenha.value) {
-            status.innerText = "As senhas não coincidem!";
+        // Validar se as senhas estão preenchidas
+        if (!senha?.value.trim()) {
+            status.innerText = "❌ Por favor, digite uma senha";
             status.style.color = "red";
+            senha?.focus();
+            return;
+        }
+
+        if (!confirmarSenha?.value.trim()) {
+            status.innerText = "❌ Por favor, confirme sua senha";
+            status.style.color = "red";
+            confirmarSenha?.focus();
             return;
         }
 
         // Verificar se a senha tem pelo menos 6 caracteres
         if (senha.value.length < 6) {
-            status.innerText = "A senha deve ter pelo menos 6 caracteres!";
+            status.innerText = "❌ A senha deve ter pelo menos 6 caracteres!";
             status.style.color = "red";
             return;
         }
 
+        // Verificar se as senhas coincidem
+        if (senha.value !== confirmarSenha.value) {
+            status.innerText = "❌ As senhas não coincidem!";
+            status.style.color = "red";
+            confirmarSenha?.focus();
+            return;
+        }
+
+        status.innerText = "⏳ Criando sua conta...";
+        status.style.color = "#ffd700";
+
         const result = await createUserWithEmailAndPassword(
             auth,
-            email.value,
+            email.value.trim(),
             senha.value
         );
 
@@ -82,25 +123,27 @@ btnCriarConta.onclick = async () => {
         });
 
         userText.innerText = `👤 Conta criada: ${user.email}`;
-        status.innerText = "Conta criada com sucesso!";
-        status.style.color = "#ccc";
+        status.innerText = "✅ Conta criada com sucesso! Redirecionando...";
+        status.style.color = "#90EE90";
 
         setTimeout(() => {
             window.location.href = "login.html";
         }, 2000);
 
     } catch (erro) {
-        console.error(erro);
+        console.error("Erro ao criar conta:", erro);
         status.style.color = "red";
 
+        let mensagem = "❌ Erro ao criar conta";
+        
         if (erro.code === "auth/email-already-in-use") {
-            status.innerText = "Este e-mail já está em uso!";
+            mensagem = "❌ Este email já está em uso!";
         } else if (erro.code === "auth/invalid-email") {
-            status.innerText = "E-mail inválido!";
+            mensagem = "❌ Email inválido!";
         } else if (erro.code === "auth/weak-password") {
-            status.innerText = "Senha muito fraca!";
-        } else {
-            status.innerText = erro.code + " - " + erro.message;
+            mensagem = "❌ Senha muito fraca!";
         }
+        
+        status.innerText = mensagem;
     }
 };

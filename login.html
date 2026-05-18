@@ -16,28 +16,27 @@
         <p id="status">Entre com sua conta</p>
 
         <!-- Login com Email e Senha -->
-        <input type="email" id="email" placeholder="Digite seu e-mail">
-        <input type="password" id="senha" placeholder="Digite sua senha">
-
-        
+        <input type="email" id="email" placeholder="Digite seu e-mail" autocomplete="email" required>
+        <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password" required>
 
         <div class="button-row">
-            <button id="loginEmail">
+            <button id="loginEmail" type="button">
                 Entrar
             </button>
-            <button id="criarConta" onclick="window.location.href='signup.html'">
+            <button id="criarConta" type="button" onclick="window.location.href='signup.html'">
                 Criar Conta
             </button>
         </div>
 
         <!-- Login com Google -->
-        <button id="loginGoogle" class="btn-google">
-            🔐 Entrar com Google
+        <button id="loginGoogle" class="btn-google" type="button">
+            <img src="img/g.png" alt="Google" class="google-icon">
+            Entrar com Google
         </button>
 
-        <label for="aceitarTermos" style="display: block; margin: 15px 0; font-size: 0.9em; color: #ccc;">
-            <input type="checkbox" id="aceitarTermos" required>
-            Aceito os <a href="politica.html" target="_blank" style="color: gold;">Termos de Uso e Política de Privacidade</a>
+        <label for="aceitarTermos" class="terms-label">
+            <input type="checkbox" id="aceitarTermos" required class="terms-checkbox">
+            <span class="terms-text">Aceito os <a href="politica.html" target="_blank">Termos de Uso e Política de Privacidade</a></span>
         </label>
 
         <p id="user"></p>

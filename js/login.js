@@ -48,6 +48,9 @@ btnLoginGoogle.onclick = async () => {
     if (!validateBasicProfile(true)) return;
 
     try {
+        status.innerText = "⏳ Conectando com Google...";
+        status.style.color = "#ffd700";
+
         const result = await signInWithPopup(auth, provider);
         const user = result.user;
         const existingProfile = getUserProfiles()[user.uid] || {};
@@ -58,16 +61,25 @@ btnLoginGoogle.onclick = async () => {
         });
 
         userText.innerText = `👤 ${user.displayName || user.email}`;
-        status.innerText = "Login com Google realizado com sucesso!";
-        status.style.color = "#ccc";
+        status.innerText = "✅ Login com Google realizado com sucesso!";
+        status.style.color = "#90EE90";
 
         setTimeout(() => {
             window.location.href = "agendamento.html";
         }, 1500);
 
     } catch (erro) {
-        console.error(erro);
-        status.innerText = erro.code + " - " + erro.message;
+        console.error("Erro no login com Google:", erro);
+        
+        let mensagem = "❌ Erro ao conectar com Google";
+        
+        if (erro.code === "auth/popup-closed-by-user") {
+            mensagem = "❌ Você cancelou o login";
+        } else if (erro.code === "auth/popup-blocked") {
+            mensagem = "❌ Pop-up bloqueado. Verifique suas configurações!";
+        }
+        
+        status.innerText = mensagem;
         status.style.color = "red";
     }
 };
@@ -77,10 +89,37 @@ btnLoginGoogle.onclick = async () => {
 btnLoginEmail.onclick = async () => {
     if (!validateBasicProfile()) return;
 
+    // Validar campos vazios
+    if (!email.value.trim()) {
+        status.innerText = "❌ Por favor, digite seu e-mail";
+        status.style.color = "red";
+        email.focus();
+        return;
+    }
+
+    if (!senha.value.trim()) {
+        status.innerText = "❌ Por favor, digite sua senha";
+        status.style.color = "red";
+        senha.focus();
+        return;
+    }
+
+    // Validar formato de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value)) {
+        status.innerText = "❌ Por favor, digite um e-mail válido";
+        status.style.color = "red";
+        email.focus();
+        return;
+    }
+
     try {
+        status.innerText = "⏳ Entrando...";
+        status.style.color = "#ffd700";
+
         const result = await signInWithEmailAndPassword(
             auth,
-            email.value,
+            email.value.trim(),
             senha.value
         );
 
@@ -93,16 +132,24 @@ btnLoginEmail.onclick = async () => {
         });
 
         userText.innerText = `👤 ${existingProfile.nomeCompleto || user.email}`;
-        status.innerText = "Login realizado com sucesso!";
-        status.style.color = "#ccc";
+        status.innerText = "✅ Login realizado com sucesso!";
+        status.style.color = "#90EE90";
 
         setTimeout(() => {
             window.location.href = "agendamento.html";
         }, 1500);
 
     } catch (erro) {
-        console.error(erro);
-        status.innerText = erro.code + " - " + erro.message;
+        console.error("Erro de login:", erro);
+        
+        // Mensagens de erro simples e diretas
+        let mensagem = "❌ Email ou senha inválidos";
+        
+        if (erro.code === "auth/too-many-requests") {
+            mensagem = "❌ Muitas tentativas. Tente mais tarde!";
+        }
+        
+        status.innerText = mensagem;
         status.style.color = "red";
     }
 };
